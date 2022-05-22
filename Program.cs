@@ -17,29 +17,28 @@ namespace minesweeper
             // Shows the Grid board
             printBoard(myBoard);
 
+            // Ask the user for an X and Y coordinate
+            Cell currentCell = setCurrentCell();
+            printBoard(myBoard);
 
 
+            // 10 Mines randomly generated
+            //https://docs.microsoft.com/en-us/dotnet/api/system.random?view=net-6.0
 
-        // 10 Mines randomly generated
-        //https://docs.microsoft.com/en-us/dotnet/api/system.random?view=net-6.0
 
-            // How is the grid set up.
             // Select a random number that fits inside the grid.
             // Generates 10 random lines. Generate 1 random line.
-            // A number for x & y twice to get the coordinates.
 
-            // "Enter a row number"
-            // "Enter a column number"
 
 
             // User clicks a square to check a location for a mine
             // Shows 1 or 2 to show adjacent squares that have mines (Can be a number)
             // 
-            
+
 
 
             // Display board for mines surrounding location (Not a requirement)
-            // 
+
 
 
 
@@ -58,53 +57,66 @@ namespace minesweeper
 
 
         }
+        // Get X and Y coordinates from user and return a cell location
+        private static Cell setCurrentCell()
+        {
+            Console.WriteLine("Enter the current row number");
+            // Save integer to a row & column
+            int currentRow = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter the current column number");
+            int currentColumn = int.Parse(Console.ReadLine());
+
+            //myBoard.Grid[currentRow, currentColumn];
+            return myBoard.Grid[currentRow, currentColumn];
+        }
 
         // Prints the grid board to the console.
         private static void printBoard(Board myBoard)
         {
             // Row
-            for(int i = 0; i < myBoard.Size; i++)
+            for (int i = 0; i < myBoard.Size; i++)
             {
+                // Draws a divider +---+---+---+---+
+                drawDivider(myBoard.Size);
+
                 // Column
                 for (int j = 0; j < myBoard.Size; j++)
                 {
-                    Cell c = myBoard.theGrid[i, j];
 
-                    Console.WriteLine("    1   2   3   4   5   6   7   8   9   10 ");
-                    Console.WriteLine("+=====+===+===+===+===+===+===+===+===+===+");
-                    Console.WriteLine("1 |   |   |   |   |   |   |   |   |   |   |");
-                    Console.WriteLine("  |   |   |   |   |   |   |   |   |   |   |");
-                    Console.WriteLine("-------------------------------------------");
-                    Console.WriteLine("2 |   |   |   |   |   |   |   |   |   |   |");
-                    Console.WriteLine("  |   |   |   |   |   |   |   |   |   |   |");
-                    Console.WriteLine("-------------------------------------------");
-                    Console.WriteLine("3 |   |   |   |   |   |   |   |   |   |   |");
-                    Console.WriteLine("  |   |   |   |   |   |   |   |   |   |   |");
-                    Console.WriteLine("-------------------------------------------");
-                    Console.WriteLine("4 |   |   |   |   |   |   |   |   |   |   |");
-                    Console.WriteLine("  |   |   |   |   |   |   |   |   |   |   |");
-                    Console.WriteLine("-------------------------------------------");
-                    Console.WriteLine("5 |   |   |   |   |   |   |   |   |   |   |");
-                    Console.WriteLine("  |   |   |   |   |   |   |   |   |   |   |");
-                    Console.WriteLine("-------------------------------------------");
-                    Console.WriteLine("6 |   |   |   |   |   |   |   |   |   |   |");
-                    Console.WriteLine("  |   |   |   |   |   |   |   |   |   |   |");
-                    Console.WriteLine("-------------------------------------------");
-                    Console.WriteLine("7 |   |   |   |   |   |   |   |   |   |   |");
-                    Console.WriteLine("  |   |   |   |   |   |   |   |   |   |   |");
-                    Console.WriteLine("-------------------------------------------");
-                    Console.WriteLine("8 |   |   |   |   |   |   |   |   |   |   |");
-                    Console.WriteLine("  |   |   |   |   |   |   |   |   |   |   |");
-                    Console.WriteLine("-------------------------------------------");
-                    Console.WriteLine("9 |   |   |   |   |   |   |   |   |   |   |");
-                    Console.WriteLine("  |   |   |   |   |   |   |   |   |   |   |");
-                    Console.WriteLine("-------------------------------------------");
-                    Console.WriteLine("10|   |   |   |   |   |   |   |   |   |   |");
-                    Console.WriteLine("  |   |   |   |   |   |   |   |   |   |   |");
-                    Console.WriteLine("+=====+===+===+===+===+===+===+===+===+===+");
+                    // for each cell, prints a *
+                    if (myBoard.Grid[i, j].IsLive)
+                    {
+                        Console.Write("| * ");
+                    }
+                    else
+                    {
+                        Console.Write("| " + myBoard.Grid[i, j].LiveNeighbors + " ");
+                    }
                 }
+
+                // add ending column divider
+                Console.WriteLine("|");
             }
+            drawDivider(myBoard.Size);
+        }
+
+        private static void drawDivider(int length)
+        {
+            // Draws this +---+---+---+---+
+            for (int i = 0; i < length; i++)
+            {
+                Console.Write("+---");
+            }
+            Console.WriteLine("+");
+
         }
     }
 }
+
+   
+            
+        
+    
+
 

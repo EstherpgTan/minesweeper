@@ -10,12 +10,34 @@ namespace minesweeper
 	{
 		public int RowNumber { get; set; }
 		public int ColumnNumber { get; set; }
+		public int LiveNeighbors { get; set; }
+		public bool IsVisited { get; set; }
+		public bool IsFlagged { get; set; }
+		public bool IsLive { get; set; }
 
-		public Cell(int x, int y)
-        {
-			RowNumber = x;
-			ColumnNumber = y;
-        }
+
+		//public Cell(int x, int y)
+		public Cell()
+		{
+			//RowNumber = x;
+			//ColumnNumber = y;
+			this.RowNumber = -1;
+			this.ColumnNumber = -1;
+			this.LiveNeighbors = 0;
+			this.IsVisited = false;
+			this.IsFlagged = false;
+			this.IsLive = false;
+		}
+
+		public Cell(int i, int j)
+		{
+			RowNumber = i;
+			ColumnNumber = j;
+			LiveNeighbors = 0;
+			IsVisited = false;
+			IsFlagged = false;
+			IsLive = false;
+		}
 	}
 }
 

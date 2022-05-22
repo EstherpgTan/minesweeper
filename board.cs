@@ -8,11 +8,11 @@ namespace minesweeper
 {
 	public class Board
 	{ 
-		// Size of board
+		// Size of board. 
 		public int Size { get; set; }
 
-		// Cell, X & Y coordinates
-		public Cell[,] theGrid { get; set; }
+		// Cell, X & Y coordinates. Grid is a 2d array of cells.
+		public Cell[,] Grid { get; set; }
 
 		// Constructor
 		public Board (int s)
@@ -21,15 +21,17 @@ namespace minesweeper
 			Size = s;
 
 			// Creating a new cell
-			theGrid = new Cell[Size, Size];
+			Grid = new Cell[Size, Size];
 
 			// Initialising the array
+			// Row
 			for (int i = 0; i < Size; i++)
             {
-				for (int j = 0; j <Size; j++)
+				// Column
+				for (int j = 0; j < Size; j++)
                 {
 					// New cell created in array with x & y coordinate
-					theGrid[i, j] = new Cell(i, j);
+					Grid[i, j] = new Cell(i, j);
                 }
             }
         }

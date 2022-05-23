@@ -68,7 +68,7 @@ namespace minesweeper
                     if (i - 1 >= 0 && j - 1 >= 0 && Grid[i - 1, j - 1].IsLive) Grid[i, j].LiveNeighbors++;
 
 					// N
-					if (r - 1 >= 0 && Grid[r - 1, c].IsLive) Grid[r, c].LiveNeighbors++;
+					if (i - 1 >= 0 && Grid[j - 1, i].IsLive) Grid[i, j].LiveNeighbors++;
 
 
 					// NE

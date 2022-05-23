@@ -8,26 +8,31 @@ namespace minesweeper
 {
     class Program
     {
-        // 10 x 10 board
-        static Board myBoard = new Board(10);
+        public static object myBoard;
 
         static void Main(string[] args)
         {
+            // 10 x 10 board
+            int boardSize = 0;
+            Board myBoard = new Board(10);
+
+        //static void Main(string[] args)
+        //{
 
             // Shows the Grid board
+        //    printBoard(myBoard);
+
+        //// Ask the user for an X and Y coordinate
+        //Cell currentCell = setCurrentCell();
+        //printBoard(myBoard);
+
+        // Setting up Grid board for bombs
+            //int boardSize = 0;
+            //Board myBoard = new Board(boardSize);
+
+            myBoard.setupBombs();
+            myBoard.CalcLiveNeighbors();
             printBoard(myBoard);
-
-            // Ask the user for an X and Y coordinate
-            Cell currentCell = setCurrentCell();
-            printBoard(myBoard);
-
-
-            // 10 Mines randomly generated
-            //https://docs.microsoft.com/en-us/dotnet/api/system.random?view=net-6.0
-
-
-            // Select a random number that fits inside the grid.
-            // Generates 10 random lines. Generate 1 random line.
 
 
 
@@ -58,18 +63,18 @@ namespace minesweeper
 
         }
         // Get X and Y coordinates from user and return a cell location
-        private static Cell setCurrentCell()
-        {
-            Console.WriteLine("Enter the current row number");
-            // Save integer to a row & column
-            int currentRow = int.Parse(Console.ReadLine());
+        //private static Cell setCurrentCell()
+        //{
+        //    Console.WriteLine("Enter the current row number");
+        //    // Save integer to a row & column
+        //    int currentRow = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter the current column number");
-            int currentColumn = int.Parse(Console.ReadLine());
+        //    Console.WriteLine("Enter the current column number");
+        //    int currentColumn = int.Parse(Console.ReadLine());
 
-            //myBoard.Grid[currentRow, currentColumn];
-            return myBoard.Grid[currentRow, currentColumn];
-        }
+        //    //myBoard.Grid[currentRow, currentColumn];
+        //    return myBoard.Grid[currentRow, currentColumn];
+        //}
 
         // Prints the grid board to the console.
         private static void printBoard(Board myBoard)
@@ -109,6 +114,8 @@ namespace minesweeper
                 Console.Write("+---");
             }
             Console.WriteLine("+");
+
+
 
         }
     }

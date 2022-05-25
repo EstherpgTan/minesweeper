@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using System.AddRange(System.Collections.Generic.IEnumerable<T> collection);
 
 namespace minesweeper
 {
@@ -43,56 +44,51 @@ namespace minesweeper
 			// Random number generator for calculating bomb placement
 			Random random = new Random();
 
-			List<int> possibleValues = new List<int>();
-			possibleValues.AddRange(1,3);
-			possibleValues.AddRange(2, 5);
-			possibleValues.AddRange(3, 8);
-			possibleValues.AddRange(4, 3);
-			possibleValues.AddRange(5, 10);
-			possibleValues.AddRange(6, 4);
-			possibleValues.AddRange(7, 7);
-			possibleValues.AddRange(8, 6);
-			possibleValues.AddRange(9, 5);
-			possibleValues.AddRange(10, 2);
+			int bombCount = 0;
+			while (bombCount <= 10)
+			{ int x = random.Next(0, 9);
+				int y = random.Next(0, 9);
+				if (Grid[x, y].hasBomb == false)
+				{
+					Grid[x, y].hasBomb = true;
+					bombCount++;
+                }
 
-			for (int i = 0; i < 100; i++)
-			{
-				possibleValues[i] = i;
 			}
+		}
+		// Rerender board when there are new coordinates
+		// Display 
 
-			List<int> result = new List<int>();
 
-			Random r = new Random();
-			int numberOfBombs = 10;
+        // cooordinates hasBomb is set to true then
 
-			for (int i = 0; i < numberOfBombs; i++)
-			{
-				int indice = r.Next(possibleValues.Count);
-				int value = possibleValues[indice];
+		// while loop (for cooordinates entry)
+		// .hasBomb true if not break out of loop
 
-				possibleValues.Remove(value);
-				result.Add(value);
-			}
 
-			// 2 dimensional array
-			//int[,] bombs = new int[,] { { 1, 1 },{ 1, 2 },{ 1, 3 } };
-			// Empty array
-			// Generating number between 1-10
-			// Check if array already has number
-			// Don't repeat same coordinates
-			// check if numbers exist in my array of coordinates
+		// print updated board (revealed/not a revealed square)
+
+		// Counting bombs around the neighbours
+
+		// Check cell, are there any bombs around it ?
+			
+			
+
+
+
+			
 
 
 			// Looping through entire grid //
-			for (int i = 0; i < Size; i++)
-			{
-				for (int j = 0; j < Size; j++)
-				{
+		//	for (int i = 0; i < Size; i++)
+		//	{
+		//		for (int j = 0; j < Size; j++)
+		//		{
 
-				}
-			}
+		//		}
+		//	}
 
-		}
+		//}
 
 		// Calculate how many neighbors are live / bombs
 		public void CalcLiveNeighbors()

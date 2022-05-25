@@ -75,6 +75,10 @@ private static void printBoard(Board myBoard)
                 // Column
                 for (int j = 0; j < myBoard.Size; j++)
                 {
+                    if (myBoard.Grid[i,j].hasBomb)
+                    {
+                        Console.Write("| b ");
+                    }
 
                     // for each cell, prints a *
                     if (myBoard.Grid[i, j].IsLive)

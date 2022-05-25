@@ -14,6 +14,7 @@ namespace minesweeper
 		public bool IsVisited { get; set; }
 		public bool IsFlagged { get; set; }
 		public bool IsLive { get; set; }
+		public bool hasBomb { get; set; }
 
 
 		//public Cell(int x, int y)
@@ -37,6 +38,7 @@ namespace minesweeper
 			IsVisited = false;
 			IsFlagged = false;
 			IsLive = false;
+			hasBomb = false;
 		}
 	}
 }

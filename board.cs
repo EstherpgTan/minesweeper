@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using System.AddRange(System.Collections.Generic.IEnumerable<T> collection);
 
 namespace minesweeper
 {
@@ -46,49 +45,17 @@ namespace minesweeper
 
 			int bombCount = 0;
 			while (bombCount <= 10)
-			{ int x = random.Next(0, 9);
+			{
+				int x = random.Next(0, 9);
 				int y = random.Next(0, 9);
 				if (Grid[x, y].hasBomb == false)
 				{
 					Grid[x, y].hasBomb = true;
 					bombCount++;
-                }
+				}
 
 			}
 		}
-		// Rerender board when there are new coordinates
-		// Display 
-
-
-        // cooordinates hasBomb is set to true then
-
-		// while loop (for cooordinates entry)
-		// .hasBomb true if not break out of loop
-
-
-		// print updated board (revealed/not a revealed square)
-
-		// Counting bombs around the neighbours
-
-		// Check cell, are there any bombs around it ?
-			
-			
-
-
-
-			
-
-
-			// Looping through entire grid //
-		//	for (int i = 0; i < Size; i++)
-		//	{
-		//		for (int j = 0; j < Size; j++)
-		//		{
-
-		//		}
-		//	}
-
-		//}
 
 		// Calculate how many neighbors are live / bombs
 		public void CalcLiveNeighbors()
@@ -127,11 +94,6 @@ namespace minesweeper
 			}
 		}
 
-		// Display to user
-		//  . * what user has already clicked on
-
-		// Shows 1 or 2 to show adjacent squares that have mines 
-
 
 		// If game is lost
 		internal bool checkIfLost()
@@ -143,7 +105,7 @@ namespace minesweeper
 				// Column
 				for (int j = 0; j < Size; j++)
 				{
-					if (Grid[i, j].IsLive && Grid[i, j].IsVisited)
+					if (Grid[i, j].hasBomb && Grid[i, j].IsVisited)
 					{
 						lost = true;
 					}
@@ -152,8 +114,8 @@ namespace minesweeper
 			return lost;
 		}
 
-		// If game is won
 
+		// If game is won
 		internal bool checkIfWon()
 		{
 			bool won = true;
@@ -163,21 +125,85 @@ namespace minesweeper
 				// Column
 				for (int j = 0; j < Size; j++)
 				{
-					if (Grid[i, j].IsVisited == false && Grid[i, j].IsLive == false)
+					if (Grid[i, j].IsVisited == false && Grid[i, j].hasBomb == false)
 					{
 						// If a cell is not visited and does not have a bomb			then the game continues.
 						won = false;
 					}
-					if (Grid[i, j].IsLive == true && Grid[i, j].IsFlagged == false)
+					if (Grid[i, j].hasBomb == true && Grid[i, j].IsFlagged == false)
 					{
 						// If a cell is not visited and does not have a bomb			then the game continues.
 						won = false;
 					}
 				}
-				if (!won);
+				if (!won) ;
 			}
 			return won;
 		}
+
+		// print updated board (revealed/not a revealed square)
+
+		// Counting bombs around the neighbours
+
+		// Check cell, are there any bombs around it ?
+
+		// Shows 1 or 2 to show adjacent squares that have mines 
+
+
+		// Showing user the cells they have selected
+		public void cellSelected(int x, int y)
+		{
+			// Sets the current cell visited to true
+			Grid[x, y].IsVisited = true;
+
+			// If a current cell has a live neighbor, then  stop.
+			if (Grid[x, y].LiveNeighbors > 0)
+
+			// If a cell has been selected
+			if (x - 1 >= 0 && Grid[x - 1, y].IsVisited == false)
+			{
+				Console.WriteLine("*");
+			}
+
+			// W
+			if (y - 1 >= 0 && Grid[x, y - 1].IsVisited == false)
+			{
+				Console.WriteLine("*");
+			}
+
+			// E
+			if (y + 1 < Size && Grid[x, y + 1].IsVisited == false)
+			{
+				Console.WriteLine("*");
+			}
+
+			// NW
+			if (x - 1 >= 0 && y - 1 >= 0 && Grid[x - 1, y - 1].IsVisited == false)
+			{
+				Console.WriteLine("*");
+			}
+
+			// NE
+			if (x - 1 >= 0 && y + 1 < Size && Grid[x - 1, y + 1].IsVisited == false)
+			{
+				Console.WriteLine("*");
+			}
+
+			// SW
+			if (x + 1 < Size && y - 1 >= 0 && Grid[x + 1, y - 1].IsVisited == false)
+			{
+				Console.WriteLine("*");
+			}
+
+			// SE
+			if (x + 1 < Size && y + 1 < Size && Grid[x + 1, y + 1].IsVisited == false && Grid[x, y].LiveNeighbors == 0)
+			{
+				Console.WriteLine("*");
+			}
+
+		}
 	}
 }
+
+
 

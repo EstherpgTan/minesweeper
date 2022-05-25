@@ -48,33 +48,23 @@ namespace minesweeper
         //                Console.ReadLine();
         //        }
 
-        // Rerender board when there are new coordinates
-        // Display 
-
-        // cooordinates hasBomb is set to true then
-
-        // while loop (for cooordinates entry)
-        // .hasBomb true if not break out of loop
        
         private static void bombs(Board myBoard,Boolean guess)
         {
-            //printBoardHiddenBombs(myBoard);
-
-            //Boolean guess = false;
             while (guess == false)
             {
+                Console.WriteLine("Select a Row number:");
                 int x = int.Parse(Console.ReadLine());
+                Console.WriteLine("Select a Column number:");
                 int y = int.Parse(Console.ReadLine());
                 Console.WriteLine(myBoard.Grid[x, y].hasBomb);
                 if (myBoard.Grid[x, y].hasBomb == false)
                 {
-                    Console.WriteLine("Select another coordinate");
+                    Console.WriteLine("Have another guess!");
                     myBoard.Grid[x, y].IsVisited = true;
                 }
                 else
                 { 
-
-                
                 //if (myBoard.Grid[x, y].hasBomb) ;
                 //{
                     Console.WriteLine("Bomb!");
@@ -84,25 +74,6 @@ namespace minesweeper
             }
            
         }
-
-
-
-
-
-        //Cell currentCell = setCurrentCell();
-        //printBoard(myBoard);
-
-        //private static Cell SetCurrentCell()
-        //{
-        //}
-
-        // Save integer to a row & column
-        //    {
-        //    Console.WriteLine("Enter the current row number");
-        //    int currentRow = int.Parse(Console.ReadLine());
-        //    Console.WriteLine("Enter the current column number");
-        //    int currentColumn = int.Parse(Console.ReadLine());
-        //}
 
         // Prints the grid board to the console.
         private static void printBoard(Board myBoard)
@@ -145,25 +116,6 @@ namespace minesweeper
                 Console.Write("+---");
             }
             Console.WriteLine("+");
-
-
-            //Ask the user for an X and Y coordinate where a cell will be selected
-            //Cell currentCell = setCurrentCell();
-            //printBoard(myBoard);
-
-            // Get X and Y coordinates from user and return a cell location
-            //private static Cell SetCurrentCell()
-            //{
-            //}
-
-            //// Save integer to a row & column
-            //Console.WriteLine("Enter the current row number");
-            //int currentRow = int.Parse(Console.ReadLine());
-            //Console.WriteLine("Enter the current column number");
-            //int currentColumn = int.Parse(Console.ReadLine());
-
-            //myBoard.Grid[currentRow,currentColumn].CurrentlyOccupied = true;
-            //return myBoard.Grid[currentRow, currentColumn];
 
         }
     }

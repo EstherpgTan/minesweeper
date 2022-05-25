@@ -27,7 +27,6 @@ namespace minesweeper
 			this.LiveNeighbors = 0;
 			this.IsVisited = false;
 			this.IsFlagged = false;
-
 			this.hasBomb = false;
 		}
 

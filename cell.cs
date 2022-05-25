@@ -14,11 +14,11 @@ namespace minesweeper
 		public bool IsVisited { get; set; }
 		public bool IsFlagged { get; set; }
 		public bool IsLive { get; set; }
-		public bool hasBomb { get; set; }
+        public bool hasBomb { get; set; }
 
 
-		//public Cell(int x, int y)
-		public Cell()
+        //public Cell(int x, int y)
+        public Cell()
 		{
 			//RowNumber = x;
 			//ColumnNumber = y;
@@ -27,7 +27,8 @@ namespace minesweeper
 			this.LiveNeighbors = 0;
 			this.IsVisited = false;
 			this.IsFlagged = false;
-			this.IsLive = false;
+
+			this.hasBomb = false;
 		}
 
 		public Cell(int i, int j)
@@ -37,7 +38,7 @@ namespace minesweeper
 			LiveNeighbors = 0;
 			IsVisited = false;
 			IsFlagged = false;
-			IsLive = false;
+			//IsLive = false;
 			hasBomb = false;
 		}
 	}

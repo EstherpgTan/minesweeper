@@ -99,29 +99,29 @@ namespace minesweeper
 				{
 
 					// NW of current square
-					if (i - 1 >= 0 && j - 1 >= 0 && Grid[i - 1, j - 1].IsLive) Grid[i, j].LiveNeighbors++;
+					if (i - 1 >= 0 && j - 1 >= 0 && Grid[i - 1, j - 1].hasBomb) Grid[i, j].LiveNeighbors++;
 
 					// N
-					if (i - 1 >= 0 && Grid[i - 1, j].IsLive) Grid[i, j].LiveNeighbors++;
+					if (i - 1 >= 0 && Grid[i - 1, j].hasBomb) Grid[i, j].LiveNeighbors++;
 
 
 					// NE
-					if (i - 1 >= 0 && j + 1 < Size && Grid[i - 1, j + 1].IsLive) Grid[i, j].LiveNeighbors++;
+					if (i - 1 >= 0 && j + 1 < Size && Grid[i - 1, j + 1].hasBomb) Grid[i, j].LiveNeighbors++;
 
 					// W
-					if (j - 1 >= 0 && Grid[i, j - 1].IsLive) Grid[i, j].LiveNeighbors++;
+					if (j - 1 >= 0 && Grid[i, j - 1].hasBomb) Grid[i, j].LiveNeighbors++;
 
 					// E
-					if (j + 1 < Size && Grid[i, j + 1].IsLive) Grid[i, j].LiveNeighbors++;
+					if (j + 1 < Size && Grid[i, j + 1].hasBomb) Grid[i, j].LiveNeighbors++;
 
 					// SW
-					if (i + 1 < Size && j - 1 >= 0 && Grid[i + 1, j - 1].IsLive) Grid[i, j].LiveNeighbors++;
+					if (i + 1 < Size && j - 1 >= 0 && Grid[i + 1, j - 1].hasBomb) Grid[i, j].LiveNeighbors++;
 
 					// S
-					if (i + 1 < Size && Grid[i + 1, j].IsLive) Grid[i, j].LiveNeighbors++;
+					if (i + 1 < Size && Grid[i + 1, j].hasBomb) Grid[i, j].LiveNeighbors++;
 
 					// SE
-					if (i + 1 < Size && j + 1 < Size && Grid[i + 1, j + 1].IsLive) Grid[i, j].LiveNeighbors++;
+					if (i + 1 < Size && j + 1 < Size && Grid[i + 1, j + 1].hasBomb) Grid[i, j].LiveNeighbors++;
 
 				}
 			}

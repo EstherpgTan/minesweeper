@@ -10,74 +10,61 @@ namespace minesweeper
     {
         public static object myBoard;
 
+        public static Cell[,] Grid { get; private set; }
+
         static void Main(string[] args)
         {
-            // 10 x 10 board
+            // 10 x 10 board, set up for bombs
             int boardSize = 0;
             Board myBoard = new Board(10);
-
-        //static void Main(string[] args)
-        //{
-
-            // Shows the Grid board
-        //    printBoard(myBoard);
-
-        //// Ask the user for an X and Y coordinate
-        //Cell currentCell = setCurrentCell();
-        //printBoard(myBoard);
-
-        // Setting up Grid board for bombs
-            //int boardSize = 0;
-            //Board myBoard = new Board(boardSize);
 
             myBoard.setupBombs();
             myBoard.CalcLiveNeighbors();
             printBoard(myBoard);
-
-
-
-            // User clicks a square to check a location for a mine
-            // Shows 1 or 2 to show adjacent squares that have mines (Can be a number)
-            // 
-
-
-
-            // Display board for mines surrounding location (Not a requirement)
-
-
-
-
-            // If a mine is selected game is lost, "Boom !"
-            // Press home button to start a new game
-
-
-
-
-
-            // If every non-mine square has been revealed, the game is won, "You have won" 
-
-
-
-
-
-
         }
-        // Get X and Y coordinates from user and return a cell location
-        //private static Cell setCurrentCell()
-        //{
-        //    Console.WriteLine("Enter the current row number");
-        //    // Save integer to a row & column
-        //    int currentRow = int.Parse(Console.ReadLine());
 
-        //    Console.WriteLine("Enter the current column number");
-        //    int currentColumn = int.Parse(Console.ReadLine());
+//        Boolean gameLost = false;
+//        Boolean gameWon = false;
+//        while (gameLost == false && gameWon === false)
+//        {
 
-        //    //myBoard.Grid[currentRow, currentColumn];
-        //    return myBoard.Grid[currentRow, currentColumn];
-        //}
+//        currentBoard(myBoard);
+//        gameLost = myBoard.checkIfLost();
+//        gameWon = myBoard.checkIfWon();
 
-        // Prints the grid board to the console.
-        private static void printBoard(Board myBoard)
+//        //If a game is lost or won
+//        if (gameLost)
+//        {
+//            Console.WriteLine("Boom!");
+//        }
+//        if (gameWon)
+//        {
+//            Console.WriteLine("You won!");
+//        }
+//        printBoard(myBoard);
+//        }
+//        Console.ReadLine();
+//}
+
+
+
+//Cell currentCell = setCurrentCell();
+//printBoard(myBoard);
+
+//private static Cell SetCurrentCell()
+//{
+//}
+
+// Save integer to a row & column
+//    {
+//    Console.WriteLine("Enter the current row number");
+//    int currentRow = int.Parse(Console.ReadLine());
+//    Console.WriteLine("Enter the current column number");
+//    int currentColumn = int.Parse(Console.ReadLine());
+//}
+
+// Prints the grid board to the console.
+private static void printBoard(Board myBoard)
         {
             // Row
             for (int i = 0; i < myBoard.Size; i++)
@@ -116,10 +103,30 @@ namespace minesweeper
             Console.WriteLine("+");
 
 
+            //Ask the user for an X and Y coordinate where a cell will be selected
+            //Cell currentCell = setCurrentCell();
+            //printBoard(myBoard);
+
+            // Get X and Y coordinates from user and return a cell location
+            //private static Cell SetCurrentCell()
+            //{
+            //}
+
+            //// Save integer to a row & column
+            //Console.WriteLine("Enter the current row number");
+            //int currentRow = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter the current column number");
+            //int currentColumn = int.Parse(Console.ReadLine());
+
+            //myBoard.Grid[currentRow,currentColumn].CurrentlyOccupied = true;
+            //return myBoard.Grid[currentRow, currentColumn];
 
         }
     }
 }
+
+        
+
 
    
             

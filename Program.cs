@@ -38,6 +38,7 @@ namespace minesweeper
                 if (myBoard.Grid[x, y].hasBomb == false)
                 {
                     Console.WriteLine("Have another guess!");
+                    // Print board to show no reveal on board
                     myBoard.Grid[x, y].IsVisited = true;
                     printBoard(myBoard);
 
@@ -68,6 +69,7 @@ namespace minesweeper
                 {
                     if (!myBoard.Grid[i,j].IsVisited)
                     {
+                        // Print board to show no reveal on board
                         Console.Write("| . ");
                     }
                     else

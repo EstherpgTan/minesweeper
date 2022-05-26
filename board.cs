@@ -199,7 +199,7 @@ namespace minesweeper
 }
 
 
-//Printing updated board (revealed/not revealed cell)
+
 
 // is revealed = false
 // coordinates: has bomb if not is revealed is true
@@ -209,9 +209,7 @@ namespace minesweeper
 // If number liveneigbours is more than 0 print number in cell
 // If 0 check the next cell
 // Set cells to hasBeenRevealed/hasVisited = true
-
 // Check square revealed, if 90 then user wins
-
 // Empty board(not revealed)
 // If is revealed print board with neigbours around it
 

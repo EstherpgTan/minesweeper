@@ -45,8 +45,6 @@ namespace minesweeper
                 }
                 else
                 { 
-                //if (myBoard.Grid[x, y].hasBomb) ;
-                //{
                     Console.WriteLine("Bomb!");
                    guess = true;
                 }

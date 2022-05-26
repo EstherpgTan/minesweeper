@@ -133,7 +133,7 @@ namespace minesweeper
 					}
 					if (Grid[i, j].hasBomb == true && Grid[i, j].IsFlagged == false)
 					{
-						// If a cell is not visited and does not have a bomb			then the game continues.
+						// If a cell is not visited and does not have a bomb then the game continues.
 						won = false;
 					}
 				}

@@ -54,6 +54,7 @@ namespace minesweeper
 					bombCount++;
 				}
 
+
 			}
 		}
 
@@ -141,13 +142,6 @@ namespace minesweeper
 			return won;
 		}
 
-		// print updated board (revealed/not a revealed square)
-
-		// Counting bombs around the neighbours
-
-		// Check cell, are there any bombs around it ?
-
-		// Shows 1 or 2 to show adjacent squares that have mines 
 
 
 		// Showing user the cells they have selected
@@ -159,11 +153,11 @@ namespace minesweeper
 			// If a current cell has a live neighbor, then  stop.
 			if (Grid[x, y].LiveNeighbors > 0)
 
-			// If a cell has been selected
-			if (x - 1 >= 0 && Grid[x - 1, y].IsVisited == false)
-			{
-				Console.WriteLine("*");
-			}
+				// If a cell has been selected
+				if (x - 1 >= 0 && Grid[x - 1, y].IsVisited == false)
+				{
+					Console.WriteLine("*");
+				}
 
 			// W
 			if (y - 1 >= 0 && Grid[x, y - 1].IsVisited == false)
@@ -200,10 +194,30 @@ namespace minesweeper
 			{
 				Console.WriteLine("*");
 			}
-
 		}
 	}
 }
+
+
+//Printing updated board (revealed/not revealed cell)
+
+// is revealed = false
+// coordinates: has bomb if not is revealed is true
+// isVisited = false
+// isVisited = true, print something .
+// input check neighbours for that square
+// If number liveneigbours is more than 0 print number in cell
+// If 0 check the next cell
+// Set cells to hasBeenRevealed/hasVisited = true
+
+// Check square revealed, if 90 then user wins
+
+// Empty board(not revealed)
+// If is revealed print board with neigbours around it
+
+
+
+
 
 
 

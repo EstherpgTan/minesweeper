@@ -25,29 +25,6 @@ namespace minesweeper
             bombs(myBoard, guess);
         }
 
-        //        Boolean gameLost = false;
-        //        Boolean gameWon = false;
-        //                while (gameLost == false && gameWon === false)
-        //                {
-
-        //                currentBoard(myBoard);
-        //        gameLost = myBoard.checkIfLost();
-        //                gameWon = myBoard.checkIfWon();
-
-        //                //If a game is lost or won
-        //                if (gameLost)
-        //                {
-        //                    Console.WriteLine("Boom!");
-        //                }
-        //                if (gameWon)
-        //                {
-        //                    Console.WriteLine("You won!");
-        //                }
-        //printBoard(myBoard);
-        //                }
-        //                Console.ReadLine();
-        //        }
-
        
         private static void bombs(Board myBoard,Boolean guess)
         {
@@ -62,6 +39,8 @@ namespace minesweeper
                 {
                     Console.WriteLine("Have another guess!");
                     myBoard.Grid[x, y].IsVisited = true;
+                    printBoard(myBoard);
+
                 }
                 else
                 { 
@@ -87,8 +66,12 @@ namespace minesweeper
                 // Column
                 for (int j = 0; j < myBoard.Size; j++)
                 {
-              
-                    if (myBoard.Grid[i, j].IsLive && !myBoard.Grid[i, j].hasBomb)
+                    if (!myBoard.Grid[i,j].IsVisited)
+                    {
+                        Console.Write("| . ");
+                    }
+                    else
+                    if(myBoard.Grid[i, j].IsLive && !myBoard.Grid[i, j].hasBomb)
                     {
                         Console.Write("| * ");
                     }
@@ -116,8 +99,10 @@ namespace minesweeper
                 Console.Write("+---");
             }
             Console.WriteLine("+");
-
         }
+
+
+
     }
 }
 

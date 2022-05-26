@@ -12,7 +12,6 @@ namespace minesweeper
 		public int ColumnNumber { get; set; }
 		public int LiveNeighbors { get; set; }
 		public bool IsVisited { get; set; }
-		public bool IsFlagged { get; set; }
 		public bool IsLive { get; set; }
         public bool hasBomb { get; set; }
 
@@ -26,7 +25,6 @@ namespace minesweeper
 			this.ColumnNumber = -1;
 			this.LiveNeighbors = 0;
 			this.IsVisited = false;
-			this.IsFlagged = false;
 			this.hasBomb = false;
 		}
 
@@ -36,7 +34,6 @@ namespace minesweeper
 			ColumnNumber = j;
 			LiveNeighbors = 0;
 			IsVisited = false;
-			IsFlagged = false;
 			//IsLive = false;
 			hasBomb = false;
 		}
